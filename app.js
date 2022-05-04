@@ -1,9 +1,34 @@
 const express = require('express');
 
 const app = express();
-app.use(express.json);
+app.use(express.json());
+
 const port = 3000;
 
-app.listen(port, ()=>{
+app.get('/v1/explorers', (req, res) => {
+    console.log(`Api Explorers GET ALL request ${ new Date()}`);
+    const explorer1 = {
+        id: 1,
+        name: "Dann1"
+    };
+    const explorer2 = {
+        id: 2,
+        name: "Dann2"
+    };
+    const explorer3 = {
+        id: 3,
+        name: "Dann3"
+    };
+    const explorer4 = {
+        id: 4,
+        name: "Dann4"
+    };
+    const explorers = [explorer1, explorer2, explorer3, explorer4];
+
+    res.status(200).json(explorers);
+});
+
+
+app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
