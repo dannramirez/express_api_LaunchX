@@ -53,6 +53,13 @@ app.put('/v1/explorers/:id', (req, res) => {
     res.status(201).json({message: "Updated"}); 
 });
 
+app.delete('/v1/explorers/:id', (req, res) => {
+    console.log(`Api Explorers GET ALL request ${ new Date()}`);
+    console.log(`Delete explorer with id ${req.params.id}`);
+    res.status(201).json({message: "Deleted"}); 
+
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
